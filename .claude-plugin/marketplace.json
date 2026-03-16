@@ -7,13 +7,12 @@
   "metadata": {
     "description": "Curated Claude Code plugin marketplace by agenticmastermind.ai",
     "version": "1.0.0",
-    "pluginRoot": "./plugins",
     "repository": "https://github.com/JorgeMoreira-com/agenticmastermind-marketplace"
   },
   "plugins": [
     {
       "name": "google-workspace",
-      "source": "google-workspace",
+      "source": "./plugins/google-workspace",
       "description": "Google Workspace CLI skills — Gmail, Drive, Calendar, Sheets, Docs, Chat, and workflow automations",
       "version": "1.0.0",
       "author": {
@@ -25,7 +24,7 @@
     },
     {
       "name": "marketplace-admin",
-      "source": "marketplace-admin",
+      "source": "./plugins/marketplace-admin",
       "description": "Skills for maintaining the agenticmastermind marketplace — versioning, syncing, releasing, and validating plugins",
       "version": "1.0.0",
       "author": {

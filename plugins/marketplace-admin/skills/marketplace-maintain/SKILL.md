@@ -227,7 +227,7 @@ Custom formatting rules for Claude's output responses.
 - **Version only in marketplace.json** — never set `version` in `plugin.json` for relative-path plugins. The marketplace entry is the authority.
 - **Plugin names are kebab-case** — no spaces, max 64 characters.
 - **All components for this project go in the marketplace** — never create standalone skills, commands, agents, or hooks outside the plugin structure.
-- **`pluginRoot`** is set to `./plugins` in marketplace.json, so plugin sources use just the directory name (e.g., `"source": "google-workspace"`).
+- **Source paths must start with `./`** — use `"source": "./plugins/google-workspace"`, not just the directory name.
 - **All paths must be relative** — start with `./`, never use `../` to escape the plugin directory.
 - **Use `${CLAUDE_PLUGIN_ROOT}`** in hooks and MCP configs — plugins are copied to cache on install, so hardcoded paths break.
 - **Components at plugin root, not in `.claude-plugin/`** — only `plugin.json` goes in `.claude-plugin/`.
@@ -313,7 +313,7 @@ mkdir -p plugins/new-plugin/styles      # Output styles
 ```json
 {
   "name": "new-plugin",
-  "source": "new-plugin",
+  "source": "./plugins/new-plugin",
   "description": "Description",
   "version": "1.0.0",
   "author": { "name": "Agentic Mastermind", "email": "admin@agenticmastermind.ai" },
@@ -481,7 +481,7 @@ Or from within Claude Code:
 - [ ] Every plugin in the `plugins` array has `name` and `source`
 - [ ] No duplicate plugin names
 - [ ] No `..` in source paths
-- [ ] `pluginRoot` matches actual directory layout
+- [ ] Source paths start with `./` (e.g., `./plugins/my-plugin`)
 
 **Plugin level:**
 - [ ] Each plugin directory has `.claude-plugin/plugin.json`
@@ -608,7 +608,7 @@ Add to a project's `.claude/settings.json` so team members get the marketplace a
 | Problem | Solution |
 |---------|----------|
 | Plugin not loading | Run `claude plugin validate .` or `claude --debug` to see loading errors |
-| Relative path fails | Ensure `pluginRoot` is set and source uses dir name only |
+| Relative path fails | Source paths must start with `./` (e.g., `./plugins/my-plugin`) |
 | Skills not discovered | Verify `SKILL.md` (exact capitalized name) in a subdirectory of `skills/` |
 | Commands not appearing | Ensure `.md` files are in `commands/` at plugin root, not inside `.claude-plugin/` |
 | Agent not available | Check frontmatter has `name` and `description` |
