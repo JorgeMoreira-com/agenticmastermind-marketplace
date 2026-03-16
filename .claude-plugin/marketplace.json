@@ -7,7 +7,8 @@
   "metadata": {
     "description": "Curated AI agent skills and plugins by agenticmastermind.ai",
     "version": "1.0.0",
-    "pluginRoot": "./plugins"
+    "pluginRoot": "./plugins",
+    "repository": "https://github.com/JorgeMoreira-com/agenticmastermind-marketplace"
   },
   "plugins": [
     {
@@ -16,10 +17,23 @@
       "description": "Google Workspace CLI skills — Gmail, Drive, Calendar, Sheets, Docs, Chat, and workflow automations",
       "version": "1.0.0",
       "author": {
-        "name": "Agentic Mastermind"
+        "name": "Agentic Mastermind",
+        "email": "admin@agenticmastermind.ai"
       },
       "keywords": ["google", "workspace", "gmail", "drive", "calendar", "sheets", "docs", "chat", "automation"],
       "category": "productivity"
+    },
+    {
+      "name": "marketplace-admin",
+      "source": "marketplace-admin",
+      "description": "Skills for maintaining the agenticmastermind marketplace — versioning, syncing, releasing, and validating plugins",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentic Mastermind",
+        "email": "admin@agenticmastermind.ai"
+      },
+      "keywords": ["marketplace", "admin", "maintenance", "versioning"],
+      "category": "admin"
     }
   ]
 }

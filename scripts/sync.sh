@@ -20,6 +20,11 @@ MARKETPLACE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCES_FILE="$MARKETPLACE_ROOT/sources.json"
 CACHE_DIR="$MARKETPLACE_ROOT/.sync-cache"
 
+# ── Load shell environment (nvm, brew, etc.) ─────────────────────────
+eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv 2>/dev/null)" 2>/dev/null || true
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 2>/dev/null || true
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'

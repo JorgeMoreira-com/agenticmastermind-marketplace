@@ -1,0 +1,76 @@
+{
+  "name": "agenticmastermind-marketplace",
+  "description": "Required dependencies for the Agentic Mastermind marketplace",
+  "dependencies": {
+    "core": [
+      {
+        "name": "node",
+        "version": ">=18.0.0",
+        "description": "JavaScript runtime — required for npm and gws CLI",
+        "check": "node --version",
+        "install": {
+          "macos": "brew install node || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash && nvm install --lts",
+          "linux": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash && nvm install --lts",
+          "windows": "winget install OpenJS.NodeJS.LTS"
+        }
+      },
+      {
+        "name": "npm",
+        "version": ">=9.0.0",
+        "description": "Node package manager — bundled with Node.js",
+        "check": "npm --version",
+        "install": {
+          "note": "Installed automatically with Node.js"
+        }
+      },
+      {
+        "name": "git",
+        "version": ">=2.30.0",
+        "description": "Version control — required for sync script and marketplace distribution",
+        "check": "git --version",
+        "install": {
+          "macos": "xcode-select --install",
+          "linux": "sudo apt install git || sudo dnf install git",
+          "windows": "winget install Git.Git"
+        }
+      },
+      {
+        "name": "gh",
+        "version": ">=2.0.0",
+        "description": "GitHub CLI — required for creating and managing the private marketplace repo",
+        "check": "gh --version",
+        "install": {
+          "macos": "brew install gh",
+          "linux": "sudo apt install gh || sudo dnf install gh",
+          "windows": "winget install GitHub.cli"
+        },
+        "postInstall": "gh auth login"
+      },
+      {
+        "name": "jq",
+        "version": ">=1.6",
+        "description": "JSON processor — required by the sync script",
+        "check": "jq --version",
+        "install": {
+          "macos": "brew install jq",
+          "linux": "sudo apt install jq || sudo dnf install jq",
+          "windows": "winget install jqlang.jq"
+        }
+      }
+    ],
+    "plugins": {
+      "google-workspace": [
+        {
+          "name": "gws",
+          "version": ">=0.16.0",
+          "description": "Google Workspace CLI — the engine behind all gws-* skills",
+          "check": "gws --version",
+          "install": {
+            "all": "npm install -g @googleworkspace/cli"
+          },
+          "postInstall": "gws auth setup"
+        }
+      ]
+    }
+  }
+}

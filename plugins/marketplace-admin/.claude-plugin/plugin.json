@@ -1,0 +1,10 @@
+{
+  "name": "marketplace-admin",
+  "description": "Skills for maintaining the agenticmastermind marketplace — versioning, syncing, releasing, and validating plugins.",
+  "author": {
+    "name": "Agentic Mastermind",
+    "email": "admin@agenticmastermind.ai"
+  },
+  "license": "MIT",
+  "keywords": ["marketplace", "admin", "maintenance", "versioning", "sync"]
+}

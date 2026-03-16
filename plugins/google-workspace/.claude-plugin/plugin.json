@@ -1,9 +1,9 @@
 {
   "name": "google-workspace",
   "description": "Google Workspace CLI skills for AI agents — Gmail, Drive, Calendar, Sheets, Docs, Chat, Admin, and workflow automations. Powered by the gws CLI.",
-  "version": "1.0.0",
   "author": {
     "name": "Agentic Mastermind",
+    "email": "admin@agenticmastermind.ai",
     "url": "https://agenticmastermind.ai"
   },
   "repository": "https://github.com/googleworkspace/cli",
