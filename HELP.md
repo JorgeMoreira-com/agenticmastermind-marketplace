@@ -17,8 +17,7 @@ Check for: missing commas in JSON, duplicate plugin names, `..` in source paths.
 ### Skills not appearing after install
 
 - Verify each skill has a `SKILL.md` file (exact capitalized name)
-- For Claude Code: restart your session or run `/reload-plugins`
-- For other agents: confirm the skill was copied to the correct directory with `./scripts/install.sh --list-agents`
+- Restart your Claude Code session or run `/reload-plugins`
 
 ### Sync overwrites a skill I customized
 
@@ -58,14 +57,6 @@ export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 export CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS=300000   # 5 minutes
 ```
 
-### Profile lock conflict (gws CLI)
-
-If a previous browser session wasn't closed cleanly:
-
-```bash
-rm -f profile/SingletonLock
-```
-
 ### Node.js / npm not found in scripts
 
 The scripts auto-load nvm and Homebrew, but if your setup differs:
@@ -88,12 +79,6 @@ export NVM_DIR="$HOME/.nvm"
 /plugin install google-workspace@agenticmastermind
 ```
 
-### How do I install skills for Codex?
-
-```bash
-./scripts/install.sh --agent codex
-```
-
 ### How do I update skills when upstream changes?
 
 ```bash
@@ -112,20 +97,11 @@ Use the maintenance skill for a full walkthrough:
 
 Or see the [README](README.md#adding-new-plugins) for the quick version.
 
-### Can I use this with Gemini CLI, Cursor, or Copilot?
-
-Yes. SKILL.md is a cross-platform open standard. Use the install script:
+### How do I check sync status?
 
 ```bash
-./scripts/install.sh --agent all
-```
-
-### How do I check what's installed?
-
-```bash
-./scripts/install.sh --list-agents        # See which agents are detected
-./scripts/sync.sh --status                # See upstream sync state
-./scripts/setup.sh --plugin google-workspace --check   # Verify dependencies
+./scripts/sync.sh --status                                # See upstream sync state
+./scripts/setup.sh --plugin google-workspace --check      # Verify dependencies
 ```
 
 ### Where do plugin components go?
@@ -146,13 +122,10 @@ plugins/my-plugin/
 
 ### How do auto-updates work?
 
-For Claude Code users who add the marketplace:
-
-1. Marketplace checks for updates on each Claude Code startup
+1. Claude Code checks for marketplace updates on startup
 2. If versions changed in `marketplace.json`, plugins are refreshed
-3. Set `GITHUB_TOKEN` for private repo auto-updates
-
-For other agents, re-run `./scripts/install.sh` to get the latest.
+3. Set `GITHUB_TOKEN` in your shell config for private repo auto-updates
+4. Manual update: `/plugin marketplace update`
 
 ## Contact
 

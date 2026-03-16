@@ -35,8 +35,7 @@ agenticmastermind-marketplace/
 │       └── settings.json          # Default plugin settings
 ├── scripts/
 │   ├── setup.sh                   # Check/install dependencies for a plugin
-│   ├── sync.sh                    # Pull upstream skill updates
-│   └── install.sh                 # Deploy skills to Claude Code, Codex, etc.
+│   └── sync.sh                    # Pull upstream skill updates
 ├── sources.json                   # Tracks upstream repos and customization state
 └── .gitignore
 ```
@@ -529,42 +528,37 @@ Or from within Claude Code:
 
 ---
 
-## 6. Deploy Skills to Agents
+## 6. Install Plugins
 
-The install script deploys skills to any supported agent's global skill directory.
+### From the marketplace
 
-```bash
-# Auto-detect agents on this machine
-./scripts/install.sh
-
-# Target specific agent
-./scripts/install.sh --agent claude
-./scripts/install.sh --agent codex
-
-# Install all agents
-./scripts/install.sh --agent all
-
-# Filter by plugin or skill
-./scripts/install.sh --agent claude --plugin google-workspace
-./scripts/install.sh --agent codex --skill gws-gmail
-
-# Uninstall
-./scripts/install.sh --uninstall --agent codex --plugin google-workspace
-
-# List detected agents
-./scripts/install.sh --list-agents
+```
+/plugin marketplace add JorgeMoreira-com/agenticmastermind-marketplace
+/plugin install google-workspace@agenticmastermind
 ```
 
-### Supported agents
+### Manage plugins
 
-| Agent | Global dir | Detection |
-|-------|-----------|-----------|
-| Claude Code | `~/.claude/skills/` | `~/.claude` exists |
-| Codex | `~/.codex/skills/` | `~/.codex` exists |
-| Gemini CLI | `~/.gemini/skills/` | `~/.gemini` exists |
-| GitHub Copilot | `~/.copilot/skills/` | `~/.copilot` exists |
-| Cursor | `~/.cursor/skills/` | `~/.cursor` exists |
-| Amp | `~/.config/agents/skills/` | `~/.config/amp` exists |
+```
+/plugin install <plugin>@agenticmastermind      # Install
+/plugin uninstall <plugin>@agenticmastermind    # Uninstall
+/plugin enable <plugin>@agenticmastermind       # Enable
+/plugin disable <plugin>@agenticmastermind      # Disable
+/plugin update <plugin>@agenticmastermind       # Update to latest
+/plugin marketplace update                       # Refresh marketplace
+```
+
+### Installation scopes
+
+| Scope | Settings file | Use case |
+|-------|--------------|----------|
+| `user` (default) | `~/.claude/settings.json` | Personal, all projects |
+| `project` | `.claude/settings.json` | Shared via version control |
+| `local` | `.claude/settings.local.json` | Project-specific, gitignored |
+
+```
+/plugin install google-workspace@agenticmastermind --scope project
+```
 
 ---
 

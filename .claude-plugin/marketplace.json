@@ -5,7 +5,7 @@
     "email": "admin@agenticmastermind.ai"
   },
   "metadata": {
-    "description": "Curated AI agent skills and plugins by agenticmastermind.ai",
+    "description": "Curated Claude Code plugin marketplace by agenticmastermind.ai",
     "version": "1.0.0",
     "pluginRoot": "./plugins",
     "repository": "https://github.com/JorgeMoreira-com/agenticmastermind-marketplace"

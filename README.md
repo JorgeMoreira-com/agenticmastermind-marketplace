@@ -1,28 +1,15 @@
 # agenticmastermind marketplace
 
-Private AI agent skills marketplace by [agenticmastermind.ai](https://agenticmastermind.ai) — works with Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, and 39+ agents.
+Private Claude Code plugin marketplace by [agenticmastermind.ai](https://agenticmastermind.ai).
 
 ## Quick Start
 
-### Claude Code (marketplace native)
-
 ```bash
+# Add the marketplace
 /plugin marketplace add JorgeMoreira-com/agenticmastermind-marketplace
+
+# Install a plugin
 /plugin install google-workspace@agenticmastermind
-```
-
-### Codex / Gemini / Copilot / Cursor
-
-```bash
-git clone git@github.com:JorgeMoreira-com/agenticmastermind-marketplace.git
-cd agenticmastermind-marketplace
-./scripts/install.sh --agent codex       # or: claude, gemini, copilot, cursor, all
-```
-
-### Check dependencies
-
-```bash
-./scripts/setup.sh --plugin google-workspace
 ```
 
 ## Available Plugins
@@ -64,8 +51,7 @@ agenticmastermind-marketplace/
 │       └── skills/
 ├── scripts/
 │   ├── setup.sh                     # Check/install dependencies
-│   ├── sync.sh                      # Pull upstream skill updates
-│   └── install.sh                   # Deploy to any AI agent
+│   └── sync.sh                      # Pull upstream skill updates
 ├── sources.json                     # Upstream source tracking
 └── .gitignore
 ```
@@ -93,29 +79,6 @@ Pulls latest skills from upstream repos while protecting your customizations.
 ./scripts/sync.sh --diff google-workspace gws-gmail         # Compare local vs upstream
 ```
 
-### `install.sh` — Multi-Agent Installer
-
-Deploys skills to any supported AI agent's global directory.
-
-```bash
-./scripts/install.sh                          # Auto-detect agents
-./scripts/install.sh --agent all              # Install to all agents
-./scripts/install.sh --agent codex            # Target one agent
-./scripts/install.sh --list-agents            # Show detected agents
-./scripts/install.sh --uninstall --agent codex  # Remove skills
-```
-
-**Supported agents:**
-
-| Agent | Global Skills Directory |
-|-------|------------------------|
-| Claude Code | `~/.claude/skills/` |
-| Codex | `~/.codex/skills/` |
-| Gemini CLI | `~/.gemini/skills/` |
-| GitHub Copilot | `~/.copilot/skills/` |
-| Cursor | `~/.cursor/skills/` |
-| Amp | `~/.config/agents/skills/` |
-
 ## Keeping Skills Updated
 
 ### Upstream sync
@@ -131,7 +94,7 @@ vim plugins/google-workspace/skills/gws-gmail/SKILL.md
 ./scripts/sync.sh --mark-custom google-workspace gws-gmail
 ```
 
-### Marketplace auto-update (Claude Code)
+### Marketplace auto-update
 
 Users with auto-update enabled receive changes on their next Claude Code startup. Others run:
 
