@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "name": "google-workspace",
+      "repo": "https://github.com/googleworkspace/cli.git",
+      "branch": "main",
+      "upstreamSkillsPath": "skills",
+      "plugin": "google-workspace",
+      "lastSyncedCommit": "1308786bdb0cb88e400bc4311b1dd224c7aa2aee",
+      "lastSyncedAt": "2026-03-16T16:47:28Z",
+      "customized": []
+    }
+  ]
+}

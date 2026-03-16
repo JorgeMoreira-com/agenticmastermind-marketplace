@@ -1,0 +1,3 @@
+# Sync cache (cloned upstream repos)
+.sync-cache/
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "name": "agenticmastermind",
+  "owner": {
+    "name": "Agentic Mastermind",
+    "email": "admin@agenticmastermind.ai"
+  },
+  "metadata": {
+    "description": "Curated AI agent skills and plugins by agenticmastermind.ai",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "google-workspace",
+      "source": "google-workspace",
+      "description": "Google Workspace CLI skills — Gmail, Drive, Calendar, Sheets, Docs, Chat, and workflow automations",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentic Mastermind"
+      },
+      "keywords": ["google", "workspace", "gmail", "drive", "calendar", "sheets", "docs", "chat", "automation"],
+      "category": "productivity"
+    }
+  ]
+}
